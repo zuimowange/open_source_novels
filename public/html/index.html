@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>主页</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="../stylesheets/cssConfig.css" />
+		<link rel="stylesheet" type="text/css" href="../layui-v2.4.5/layui/css/my_layui.css"/>
+		
+		<style>
+			/*最外层div共同样式start*/
+			.header,.search,.leftList{
+				padding: 0 5% 0 5%;
+			}
+			/*最外层div共同样式end*/
+			/*头部导航栏start*/
+			.header{
+				margin-bottom: 30px;
+				min-height: 60px;
+				min-width: 320px;
+				box-sizing: border-box;
+				background: var(--background--navigation);
+			}
+			.layui-nav{
+				background: var(--transparent);
+			}
+			.header>div:first-of-type{height: 60px;line-height: 60px;}
+			.logo{color: white;display:inline-block;width: 100%;height: 100%;}
+			.header>div>ul{
+				display: flex;
+				justify-content: flex-end;
+			}
+			/*头部导航栏end*/
+			/*搜索框start*/
+			.search{
+				text-align: center;
+				margin-bottom:30px ;
+				min-width: 320px;
+				box-sizing: border-box;
+			}
+			input[name=searchValue]{
+				width: 80%;
+				height: 40px;
+				box-sizing: border-box;
+				padding: 0 10px 0 10px;
+				position: relative;
+				bottom: 1px;
+				top: 1px;
+				border: 1px solid var(--color--two);
+			}
+			.searchBtn{
+				display: inline-block;
+				width: 20%;
+				height: 40px;
+				vertical-align: middle;
+				background: var(--color--two);
+				border-top-left-radius: 0px;
+    			border-bottom-left-radius: 0px;
+			}
+			.search>div{
+				width:100%;
+				max-width: 600px;
+				margin: auto;
+			}
+			.search>div:last-of-type{
+				text-align: left;
+				padding: 0 10px 0 10px;
+				box-sizing: border-box;
+				margin-top: 7px;
+				color: #777777;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.search>div:last-of-type>span{
+				margin-right:5px ;
+				cursor: pointer;
+			}
+			.search>div:last-of-type>span:nth-child(n+2):hover{
+				color: var(--color--one);
+				text-decoration: underline;
+			}
+			/*搜索框end*/
+			/*左侧导航start*/
+			.leftList{
+				width: 100%;
+				box-sizing: border-box;
+			}
+			.leftListUl{
+				width: 30%;
+				min-width: 200px;
+				max-width: 200px;
+				box-shadow: 2px 2px 5px #bbbbbb;
+				font-size: 15px;
+			}
+			.leftListUl>li{
+				width: 100%;
+				height: 60px;
+				line-height: 60px;
+				text-align: center;
+				border-bottom: 1px solid #eeeeee;
+				background: white;
+				box-sizing: border-box;
+			}
+			.leftListUl>li:last-of-type{
+				border-bottom: none;
+			}
+			.leftListUl>li>a{
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+			}
+			.leftListUl>li>a:hover{
+				background: var(--color--left--list--background);
+				color: var(--color--left--list--text) !important;
+			}
+			/*左侧导航end*/
+			
+			/*轮播图和左侧列表定位start*/
+			.layui-carousel{margin-top:100px ;}
+			.layui-container{
+				padding: 0;
+			}
+			.leftList{
+				position: relative;
+				top: -420px;
+			}
+			.layui-carousel-ind{
+				z-index: 200;
+			}
+			.layui-carousel-ind ul{
+				background: var(--color--two--transparent);
+			}
+			.layui-carousel-ind ul:hover{
+				background: var(--color--two--transparent--hover);
+			}
+			/*轮播图和左侧列表定位end*/
+			
+			/*轮播图start*/
+			#carousel div{
+				width: 100%;
+				height: 100%;
+			}
+			#carousel a{
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+			}
+			#carousel img{
+				width: 100%;
+				height: 100%;
+			}
+			/*.carouselDiv{
+				display: flex;
+				width: 100%;
+			}
+			.carouselDiv>div:first-of-type{width: 5%;}
+			.carouselDiv>div:last-of-type{width: 5%;}
+			.carouselDiv>div:nth-of-type(2){
+				width: 90%;background: red;
+			}*/
+			/*轮播图end*/
+		</style>
+	</head>
+	<body>
+		<!--头部导航栏start-->
+		<div class="layui-header header layui-row">
+			<div class="layui-col-md3 layui-col-sm3 layui-col-xs4">
+				<a class="logo" href="#">首页</a>
+			</div>
+			<div class="layui-col-md9 layui-col-sm9 layui-col-xs8">
+				<ul class="layui-nav" lay-filter="">
+			  		<li class="layui-nav-item layui-hide-xs layui-this"><a href="">全部作品</a></li>
+			  		<li class="layui-nav-item layui-hide-xs"><a href="">作家专区</a></li>
+			  		<li class="layui-nav-item layui-hide-xs"><a href="">排行</a></li>
+			  		<li class="layui-nav-item layui-hide-xs"><a href="">完本</a></li>
+			  		<li class="layui-nav-item layui-hide-xs"><a href="">免费</a></li>
+			  		<li class="layui-nav-item">
+			    		<a href="javascript:;">个人中心</a>
+			    		<dl class="layui-nav-child"> 
+				      		<dd><a href="">移动模块</a></dd>
+				      		<dd><a href="">后台模版</a></dd>
+				      		<dd><a href="">注销</a></dd>
+				      		
+				      		<dd class="layui-hide-md layui-show-xs"><hr/><a href="">全部作品</a></dd>
+				      		<dd class="layui-hide-md layui-show-xs"><a href="">作家专区</a></dd>
+				      		<dd class="layui-hide-sm layui-show-xs"><hr/><a href="">排行</a></dd>
+				      		<dd class="layui-hide-sm layui-show-xs"><a href="">完本</a></dd>
+				      		<dd class="layui-hide-sm layui-show-xs"><a href="">免费</a></dd>
+			    		</dl>
+			  		</li>
+				</ul>
+			</div>
+		</div>
+		<!--头部导航栏end-->
+		<!--搜索框start-->
+		<div class="search ">
+			<div>
+				<input name="searchValue" type="text" placeholder="搜索您想要的小说" name="kws" autocomplete="off" value=""><button class="layui-btn layui-btn-shop searchBtn"><i class="layui-icon layui-icon-search"></i></button>
+
+			</div>
+			<div>
+				<span>热搜：</span>
+				<span>热搜1</span>
+				<span>热搜2</span>
+				<span>热搜3</span>
+				<span>热搜4</span>
+				<span>热搜5</span>
+				<span>热搜6</span>
+			</div>
+		</div>
+		<!--搜索框end-->
+		<div class="listAndCarousel">
+			<!--海报轮播start-->
+			<div class="layui-container layui-row">
+				<div class="layui-col-xs12 layui-col-sm12 layui-col-md2"></div>
+				<div class="layui-carousel layui-col-xs12 layui-col-sm12 layui-col-md8" id="carousel">
+					<div carousel-item>
+						<div><a href=""><img src="../images/carousel/carousel.jpg" /></a></div>
+						<div><a href=""><img src="../images/carousel/carousel.jpg" /></a></div>
+					</div>
+				</div>
+				<div class="layui-col-xs12 layui-col-sm12 layui-col-md2"></div>
+			</div>
+			
+			<!--海报轮播end-->
+			<!--左侧导航start-->
+			<div class="leftList">
+				<ul class="leftListUl">
+					<li><a href="/store/cat/0/">模板分类</a></li>
+					<li><a href="/store/cat/0/">模板分类</a></li>
+					<li><a href="/store/cat/0/">模板分类</a></li>
+					<li><a href="/store/cat/0/">模板分类</a></li>
+					<li><a href="/store/cat/0/">模板分类</a></li>
+					<li><a href="/store/cat/0/">模板分类</a></li>
+					<li><a href="/store/cat/0/">模板分类</a></li>
+				</ul>
+			</div>
+			<!--左侧导航end-->
+		</div>
+		
+	</body>
+	<script src="../layui-v2.4.5/layui/layui.js"></script>
+	<script>
+		layui.use('element', function(){
+  			var element = layui.element;
+  			
+  			/*海报轮播*/
+  			layui.use('carousel',function(){
+  				var carousel = layui.carousel;
+  				carousel.render({
+  					elem:'#carousel',
+  					width:'100%',
+  					height:'360px',
+  					arrow:'none'
+  				});
+  			});
+  			
+		});
+		
+	</script>
+</html>

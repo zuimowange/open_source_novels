@@ -1,0 +1,36 @@
+/*黑色系皮肤*/
+:root{
+	--color--one:#24262F;
+	--color--two:#5EBA78;/*导航栏鼠标放上去时的颜色*/
+	--color--two--transparent:rgba(0,0,0,0.2);/*轮播小圆点背景色*/
+	--color--two--transparent--hover:rgba(0,0,0,0.4);/*轮播小圆点hover背景色*/
+	--color--left--list--background:#EEEEEE;/*左侧导航栏hover背景色*/
+	--color--left--list--text:var(--color--two);/*左侧导航栏hover文字颜色*/
+	--background--navigation:var(--color--one);/*导航栏背景*/
+	--transparent:rgba(0,0,0,0);/*透明色*/
+}
+
+/*黄色系皮肤*/
+/*:root{
+	--color--one:#A3A380;
+	--color--two:#E2DBBE;
+	--color--two--transparent:rgba(226,219,190,0.4);
+	--color--two--transparent--hover:rgba(226,219,190,0.8);
+	--color--left--list--background:var(--color--two);
+	--color--left--list--text:white;
+	--background--navigation:var(--color--one);
+	--transparent:rgba(0,0,0,0);
+}
+*/
+
+/*红色系皮肤*/
+/*:root{
+	--color--one:#C1194E;
+	--color--two:#FF5983;
+	--color--two--transparent:rgba(255,89,131,0.4);
+	--color--two--transparent--hover:rgba(255,89,131,0.8);
+	--color--left--list--background:#EEEEEE;
+	--color--left--list--text:var(--color--two);
+	--background--navigation:var(--color--one);
+	--transparent:rgba(0,0,0,0);
+}*/
