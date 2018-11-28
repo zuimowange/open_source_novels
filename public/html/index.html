@@ -137,28 +137,20 @@
 			/*轮播图和左侧列表定位end*/
 			
 			/*轮播图start*/
-			#carousel div{
-				width: 100%;
+			#carousel{
+				height: 360px;
+			}
+			.myContainer{
+				width: 100%;height: 100%;
+			}
+			.myContainer>div{
 				height: 100%;
 			}
-			#carousel a{
-				display: inline-block;
+			.myContainer img{
 				width: 100%;
 				height: 100%;
+				cursor: pointer;
 			}
-			#carousel img{
-				width: 100%;
-				height: 100%;
-			}
-			/*.carouselDiv{
-				display: flex;
-				width: 100%;
-			}
-			.carouselDiv>div:first-of-type{width: 5%;}
-			.carouselDiv>div:last-of-type{width: 5%;}
-			.carouselDiv>div:nth-of-type(2){
-				width: 90%;background: red;
-			}*/
 			/*轮播图end*/
 		</style>
 	</head>
@@ -210,17 +202,32 @@
 			</div>
 		</div>
 		<!--搜索框end-->
-		<div class="listAndCarousel">
 			<!--海报轮播start-->
-			<div class="layui-container layui-row">
-				<div class="layui-col-xs12 layui-col-sm12 layui-col-md2"></div>
-				<div class="layui-carousel layui-col-xs12 layui-col-sm12 layui-col-md8" id="carousel">
+			<div>
+				<div class="layui-carousel" id="carousel">
 					<div carousel-item>
-						<div><a href=""><img src="../images/carousel/carousel.jpg" /></a></div>
-						<div><a href=""><img src="../images/carousel/carousel.jpg" /></a></div>
+						<div class="layui-container layui-row myContainer">
+							<div class="mirrorLeft layui-hide-xs layui-show-sm layui-col-sm2 layui-col-md2"></div>
+							<div class="layui-col-sm8 layui-col-md8"><a href=""><img class="poster" src="../images/carousel/carousel1.jpg" /></a></div>
+							<div class="mirrorRight layui-hide-xs layui-show-sm layui-col-sm2 layui-col-md2"></div>
+						</div>
+						<div class="layui-container layui-row myContainer">
+							<div class="mirrorLeft layui-hide-xs layui-show-sm layui-col-sm2 layui-col-md2"></div>
+							<div class="layui-col-sm8 layui-col-md8"><a href=""><img class="poster" src="../images/carousel/carousel2.jpg" /></a></div>
+							<div class="mirrorRight layui-hide-xs layui-show-sm layui-col-sm2 layui-col-md2"></div>
+						</div>
+						<div class="layui-container layui-row myContainer">
+							<div class="mirrorLeft layui-hide-xs layui-show-sm layui-col-sm2 layui-col-md2"></div>
+							<div class="layui-col-sm8 layui-col-md8"><a href=""><img class="poster" src="../images/carousel/carousel3.jpg" /></a></div>
+							<div class="mirrorRight layui-hide-xs layui-show-sm layui-col-sm2 layui-col-md2"></div>
+						</div>
+						<div class="layui-container layui-row myContainer">
+							<div class="mirrorLeft layui-hide-xs layui-show-sm layui-col-sm2 layui-col-md2"></div>
+							<div class="layui-col-sm8 layui-col-md8"><a href=""><img class="poster" src="../images/carousel/carousel.jpg" /></a></div>
+							<div class="mirrorRight layui-hide-xs layui-show-sm layui-col-sm2 layui-col-md2"></div>
+						</div>
 					</div>
 				</div>
-				<div class="layui-col-xs12 layui-col-sm12 layui-col-md2"></div>
 			</div>
 			
 			<!--海报轮播end-->
@@ -237,10 +244,10 @@
 				</ul>
 			</div>
 			<!--左侧导航end-->
-		</div>
 		
 	</body>
 	<script src="../layui-v2.4.5/layui/layui.js"></script>
+	<script type="text/javascript" src="../javascripts/rgbaster.js" ></script>
 	<script>
 		layui.use('element', function(){
   			var element = layui.element;
@@ -255,6 +262,27 @@
   					arrow:'none'
   				});
   			});
+  			
+  			/*获取颜色*/
+  			var posters = document.getElementsByClassName('poster');
+  			var mirrorLefts = document.getElementsByClassName('mirrorLeft');
+  			var mirrorRights = document.getElementsByClassName('mirrorRight');
+  			var n = 0;
+  			for (var i = 0; i < posters.length; i++) {
+  				RGBaster.colors(posters[i],{
+	  				paletteSize:30,
+	  				exclude: ['rgb(255,255,255)'],
+	  				success:function(payload){
+	  					mirrorLefts[n].style.background=payload.dominant;
+	  					mirrorRights[n].style.background=payload.dominant;
+	  					n++;
+	  					if(n==posters.length){
+	  						n=0;
+	  					}
+	  					console.log(n);
+	  				}
+	  			});
+  			}
   			
 		});
 		
